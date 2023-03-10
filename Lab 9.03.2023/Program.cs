@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-static int BinarySearch(int[] mass, int value)
+/*static int BinarySearch(int[] mass, int value)
 {
     int left = 0;
     int right = Length(mass) - 1;
@@ -135,7 +135,7 @@ static int[] Clear(int[] mass)
     int[] newmass = new int[Length(mass)];
     return newmass;
 }
-
+*/
 int n = Convert.ToInt32(Console.ReadLine());
 int[] mass = new int[n];
 int[] copy_mass = new int[n];
@@ -145,7 +145,7 @@ while (true) {
     Console.WriteLine("3.  Copy");
     Console.WriteLine("4.  Reverse");
     Console.WriteLine("5.  Lenght");
-    Console.WriteLine("6.  ToString");
+    Console.WriteLine("6.  Resize");
     Console.WriteLine("7.  SetValue");
     Console.WriteLine("8.  IndexOf");
     Console.WriteLine("9.  Exist");
@@ -156,46 +156,48 @@ while (true) {
     if (command == 1)
     {
         int value = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(BinarySearch(mass, value));
+        Console.WriteLine(Array.BinarySearch(mass, value));
     }
     if (command == 2)
     {
-        mass = Sort(mass);
+        Array.Sort(mass);
     }
     if (command == 3)
     {
-        mass = Copy(mass, copy_mass);
+        Array.Copy(mass, copy_mass, n);
     }
     if (command == 4)
     {
-        mass = Reverse(mass);
+        mass.Reverse();
     }
     if (command == 5)
     {
-        Console.WriteLine(Length(mass));
+        Console.WriteLine(mass.Length);
     }
     if (command == 6)
     {
-        Console.WriteLine(ToString(mass));
+        int value = Convert.ToInt32(Console.ReadLine());
+        Array.Resize(ref mass, value);
     }
     if (command == 7)
     {
         int value = Convert.ToInt32(Console.ReadLine());
-        mass = SetValue(mass, value);
+        int obj = Convert.ToInt32(Console.ReadLine());
+        mass.SetValue(obj, value);
     }
     if (command == 8)
     {
         int value = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(IndexOf(mass, value));
+        Console.WriteLine(Array.IndexOf(mass, value));
     }
     if (command == 9)
     {
         int value = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(Exist(mass, value));
+        Console.WriteLine(Array.Exists(mass, x => x>5));
     }
     if (command == 10)
     {
-        mass = Clear(mass);
+        Array.Clear(mass);
     }
     if (command == 11)
     {
